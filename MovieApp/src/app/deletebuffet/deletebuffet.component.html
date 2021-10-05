@@ -1,0 +1,12 @@
+Delete Your Bookings Here
+<p>Booking Id</p>
+<input type="number" class="input" placeholder="Enter your task" [(ngModel)]="id">
+<button (click)="deletebuff()">Delete Booking</button>
+  <div [hidden]="!submitted">
+    <a>Booking deleted Successfully!!!</a>
+  </div>
+<div [hidden]="!entered">
+  <div [hidden]="!submitted1">
+    Sorry!! This Booking ID does not exists
+  </div>
+</div>

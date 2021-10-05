@@ -1,0 +1,20 @@
+View Your Buffet Bookings here
+
+<p>Booking Id</p>
+<input type="number" class="input" placeholder="Enter your task" [(ngModel)]="id">
+<button (click)="viewbuff()">View Booking</button>
+<div [hidden]="!submitted">
+  <table>
+    <tr *ngFor="let product1 of products">
+      <td>{{product1.emailid}}</td>
+      <td>{{product1.platecount}}</td>
+      <td>{{product1.bookdate}}</td>
+      <td>{{product1.id}}</td>
+    </tr>
+  </table>
+</div>
+<div [hidden]="!entered">
+  <div [hidden]="!submitted1">
+    Sorry!! This Booking ID does not exists
+  </div>
+</div>

@@ -1,0 +1,18 @@
+{
+  "products": [
+    {
+      "buffetname": "South Indian",
+      "emailid": "a@ad.com",
+      "platecount": 35,
+      "bookdate": "2020-09-30",
+      "id": 1000
+    },
+    {
+      "buffetname": "South Indian",
+      "emailid": "a@ad.com",
+      "platecount": 24,
+      "bookdate": "2020-09-22",
+      "id": 1001
+    }
+  ]
+}

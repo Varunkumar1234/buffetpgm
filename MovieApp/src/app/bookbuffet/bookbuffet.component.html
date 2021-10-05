@@ -1,0 +1,50 @@
+<div>
+  <h1>Book your Buffet here</h1>
+  <form [formGroup]="BuffetForm" (ngSubmit)="submit(bookdate1.value, email1.value, platecount1.value)">
+    <div class="form-group">
+      <select class="custom-select" formcontrolName="buffetname" (change)="changebuffet($event)">
+        <option value="">Choose your buffet</option>
+        <option *ngFor="let buffet of buffets" [ngValue]="buffet">
+          {{buffet}}
+        </option>
+      </select>
+      <div *ngIf="BuffetForm.controls.buffetname.errors" class="invalid-feedback">
+        <div *ngIf="BuffetForm.controls.buffetname.required">Email is Required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Email-Id</label>
+      <input type="email" formControlName="emailid" class="form-control" #email1>
+      <div *ngIf="BuffetForm.controls.emailid.errors" class="invalid-feedback">
+        <div *ngIf="BuffetForm.controls.emailid.errors.required">Email is Required</div>
+        <div *ngIf="BuffetForm.controls.emailid.errors.email">Enter a valid mail address</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Plate Count</label>
+      <input type="number" formControlName="platecount" class="form-control" #platecount1>
+      <div *ngIf="BuffetForm.controls.platecount.errors" class="invalid-feedback">
+        <div *ngIf="BuffetForm.controls.platecount.errors.required">Plate Count is Required</div>
+        <div *ngIf="BuffetForm.controls.platecount.errors.number">Book Min 1 plate</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Booking Date</label>
+      <input type="date" formControlName="bookdate" class="form-control" #bookdate1>
+      <div *ngIf="BuffetForm.controls.bookdate.errors" class="invalid-feedback">
+        <div *ngIf="BuffetForm.controls.bookdate.errors.required">Date is Required</div>
+      </div>
+    </div>
+    <button [disabled]="!BuffetForm.valid">Book Buffet</button>
+  </form>
+  <div [hidden]="!submitted">
+    Congrats!! Your Buffet was booked successfully!.
+    You Booking id is {{x}}.
+  </div>
+  <div [hidden]="!submitted1">
+    Sorry!! Buffet already booked on this date
+  </div>
+  <div [hidden]="!submitted2">
+    Sorry!! Booking Date can be past date..
+  </div>
+</div>
