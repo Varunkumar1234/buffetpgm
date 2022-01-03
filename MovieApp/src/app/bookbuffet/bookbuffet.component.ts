@@ -59,6 +59,9 @@ export class BookbuffetComponent implements OnInit {
   bookbuffet(){
     this.id1 = 1000;
     console.log(this.BuffetForm.value);
+    if (String(this.bookdate2) < String(this.currentDate)){
+      
+    }
   }
 
   submit(bookdate1, email1, platecount1) {
