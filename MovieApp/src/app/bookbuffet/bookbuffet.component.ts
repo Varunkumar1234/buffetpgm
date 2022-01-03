@@ -54,6 +54,12 @@ export class BookbuffetComponent implements OnInit {
   get buffetname() {
     return this.BuffetForm.get('buffetname');
   }
+  
+  
+  bookbuffet(){
+    this.id1 = 1000;
+    console.log(this.BuffetForm.value);
+  }
 
   submit(bookdate1, email1, platecount1) {
     this.bookdate2 = bookdate1;
