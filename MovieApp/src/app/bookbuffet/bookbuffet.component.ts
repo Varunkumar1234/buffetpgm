@@ -83,7 +83,7 @@ export class BookbuffetComponent implements OnInit {
             this.submitted1 = false;
             this.submitted2 = false;
             this.successmessage = 'message';
-          });
+          },(err:HttpErrorResponse)=>{this.errormessage = err});
         }
       });
     }
