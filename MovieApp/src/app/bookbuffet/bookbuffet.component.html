@@ -1,6 +1,6 @@
 <div>
   <h1>Book your Buffet here</h1>
-  <form [formGroup]="BuffetForm" (ngSubmit)="submit(bookdate1.value, email1.value, platecount1.value)">
+  <form [formGroup]="BuffetForm">
     <div class="form-group">
       <select class="custom-select" formcontrolName="buffetname" (change)="changebuffet($event)">
         <option value="">Choose your buffet</option>
@@ -35,7 +35,7 @@
         <div *ngIf="BuffetForm.controls.bookdate.errors.required">Date is Required</div>
       </div>
     </div>
-    <button [disabled]="!BuffetForm.valid">Book Buffet</button>
+    <button [disabled]="!BuffetForm.valid" (click)="bookbuffet()">Book Buffet</button>
   </form>
   <div [hidden]="!submitted">
     {{successmessage}}
