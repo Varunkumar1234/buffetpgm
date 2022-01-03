@@ -59,21 +59,15 @@ export class BookbuffetComponent implements OnInit {
   bookbuffet(){
     this.id1 = 1000;
     console.log(this.BuffetForm.value);
-    if (String(this.bookdate2) < String(this.currentDate)){
-      
+    if (String(this.BuffetForm.value.bookdate) < String(this.currentDate)){
+            this.submitted = false;
+      this.submitted1 = false;
+      this.submitted2 = true;
     }
-  }
-
-  submit(bookdate1, email1, platecount1) {
-    this.bookdate2 = bookdate1;
-    this.email = email1;
-    this.platecount = platecount1;
-    this.id1 = 1000;
-    console.log(this.bookdate2);
-    if (String(this.bookdate2) < String(this.currentDate)) {
+    else{
       this.buffetService.getAll().subscribe((data) => {
         this.products = data;
-        if (this.products.filter(({ bookdate }) => String(bookdate) === String(this.bookdate2)).length) {
+        if (this.products.filter(({ bookdate }) => String(bookdate) === String(this.BuffetForm.value.bookdate)).length) {
           this.submitted1 = true;
           this.submitted = false;
           this.submitted2 = false;
@@ -93,10 +87,5 @@ export class BookbuffetComponent implements OnInit {
         }
       });
     }
-    else {
-      this.submitted = false;
-      this.submitted1 = false;
-      this.submitted2 = true;
-    }
   }
-}
+
