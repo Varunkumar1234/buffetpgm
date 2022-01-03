@@ -38,11 +38,11 @@
     <button [disabled]="!BuffetForm.valid">Book Buffet</button>
   </form>
   <div [hidden]="!submitted">
-    Congrats!! Your Buffet was booked successfully!.
+    {{successmessage}}
     You Booking id is {{x}}.
   </div>
   <div [hidden]="!submitted1">
-    Sorry!! Buffet already booked on this date
+    {{errormessage}}
   </div>
   <div [hidden]="!submitted2">
     Sorry!! Booking Date can be past date..
