@@ -32,6 +32,8 @@ export class BookbuffetComponent implements OnInit {
   platecount: number;
   bookdate: number;
   id1: number;
+  successmessage: string = '';
+  errormessage: string = '';
   // tslint:disable-next-line: typedef
   ngOnInit() {
     this.BuffetForm = this.fb.group({
@@ -77,6 +79,7 @@ export class BookbuffetComponent implements OnInit {
             this.submitted = true;
             this.submitted1 = false;
             this.submitted2 = false;
+            this.successmessage = 'message';
           });
         }
       });
