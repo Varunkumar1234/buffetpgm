@@ -27,7 +27,7 @@ export class ViewbuffetComponent {
     this.buffetService.getById(this.id).subscribe((data: Product) => {
       this.products.push(data);
       console.log(this.products);
-      if (this.products.filter(({ id }) => String(id) === String(this.id)).length) {
+      if (this.products == null) {
         this.submitted = true;
         this.submitted1 = false;
         this.entered = false;
@@ -37,6 +37,8 @@ export class ViewbuffetComponent {
         this.submitted1 = true;
         this.entered = true;
       }
-    });
+    }
+                                                 
+   );
   }
 }
